@@ -1,10 +1,7 @@
-require 'fileutils'
-#
 module Helper
-#  def report(file, result)
-#    path = "results/screenshots/test_#{result}"
-#    photo = "#{path}/#{file}.png"
-#    page.save_screenshot(photo)
-#    embed(photo, 'image/png', 'Click here')
-#  end
+    def take_photo(arq_name, results)
+        arq_path = "report/screenshots/test_#{results}"
+        photo = "#{arq_path}/#{arq_name}.png"
+        page.save_screenshot(photo)
+    end
 end

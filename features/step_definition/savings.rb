@@ -18,26 +18,22 @@ Given('I am at the buy a house page') do
   end
   
   When('I click on the < icon') do
-    pending # Write code here that turns the phrase above into concrete actions
+    @savings_page.dateDecrease()
   end
   
-  Then('The arrow is not able to click') do
-    pending # Write code here that turns the phrase above into concrete actions
+  Then('The decrease arrow is not able to click') do
+    expect(savings_page.has_selector?('svg[class="sc-furwcr ftJiaC disabled"]')).to eq true
   end
   
-  When('I click on the > icon twice') do
+  When('I click on the > icon') do
    @savings_page.dateIncrement()
   end
   
-  When('I click on the < icon twice') do
-    pending # Write code here that turns the phrase above into concrete actions
-  end
-  
   Then('stay in the actual month') do
-    pending # Write code here that turns the phrase above into concrete actions
+    @month = @savings_page.month
+    expect(@month.text).to eq "February" 
   end
-  
   
   When('I click in the confirm button') do
-    pending # Write code here that turns the phrase above into concrete actions
+    @savings_page.confirmButton()
   end

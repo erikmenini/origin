@@ -1,19 +1,15 @@
-require 'capybara'
 require 'capybara/cucumber'
 require 'selenium-webdriver'
-require 'faker'
-require 'ostruct'
 require 'site_prism'
-require_relative 'page_helper.rb'
 require_relative 'helper.rb'
+require_relative 'page_helper.rb'
 
-World(Pages)
+
+ENVIROMENT = ENV['ENVIROMENT']
+
+CONFIG = YAML.load_file(File.dirname(__FILE__) + "/enviroment/#{ENVIROMENT}.yml")
 World(Helper)
-
-AMBIENTE = ENV['AMBIENTE']
-
-CONFIG = YAML.load_file(File
-  .dirname(__FILE__) + "/data/#{AMBIENTE}.yml")
+World(Pages)
 
 
 Capybara.configure do |config|

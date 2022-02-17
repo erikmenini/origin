@@ -18,20 +18,19 @@ Then The field should be empty
 @pastMonth @dateField
 Scenario: Check if the date field accept month from the past
 Given I am at the buy a house page
-When I click on the < icon
-Then The arrow is not able to click
+Then The decrease arrow is not able to click
 
 @changeMonth @dateField
 Scenario: Change the month and go back to check if month change
 Given I am at the buy a house page
-When I click on the > icon twice
-And I click on the < icon twice
+When I click on the > icon
+And I click on the < icon
 Then stay in the actual month
 
 @confirmButton 
 Scenario: Use the saving goal and click on the confirm button
 Given I am at the buy a house page
 And I fill the money data with the value '50679899'
-And I click on the > icon twice
+And I click on the > icon
 When I click in the confirm button
 Then in the field I should have '506,798.99'
