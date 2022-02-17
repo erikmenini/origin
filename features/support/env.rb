@@ -11,29 +11,13 @@ World(Pages)
 World(Helper)
 
 AMBIENTE = ENV['AMBIENTE']
-BROWSER = ENV['BROWSER']
 
 CONFIG = YAML.load_file(File
   .dirname(__FILE__) + "/data/#{AMBIENTE}.yml")
 
-Capybara.register_driver :selenium do |app|
-  if BROWSER.eql?('chrome')
-    option = ::Selenium::WebDriver::Chrome::Options.new(
-      args: ['--start-fullscreen', '--disable-infobars']
-    )
-    Capybara::Selenium::Driver.new(app, browser: :chrome, options: option)
-  elsif BROWSER.eql?('firefox')
-    Capybara::Selenium::Driver.new(
-      app, browser: :firefox,
-           desired_capabilities: Selenium::WebDriver::Remote::Capabilities
-        .firefox(marionette: true)
-    )
-  end
-end
 
 Capybara.configure do |config|
-  config.default_driver = :selenium
+  config.default_driver = :selenium_chrome
   config.app_host = CONFIG['url_home']
+  config.default_max_wait_time = 10
 end
-
-Capybara.default_max_wait_time = 60

@@ -13,7 +13,7 @@ Then in the field I should have '506,798.99'
 Scenario: Insert words on the amount field
 Given I am at the buy a house page
 When I fill the money data with the value 'Test'
-Then in the field I should see the placeholder '1,000'
+Then The field should be empty
 
 @pastMonth @dateField
 Scenario: Check if the date field accept month from the past

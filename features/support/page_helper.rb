@@ -1,5 +1,5 @@
 module Pages
-  def register_page
-    @register ||= Registration.new
+  def savings_page
+    @savings_page ||= Savings.new
   end
 end
