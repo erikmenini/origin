@@ -1,4 +1,4 @@
-class savings < SitePrism::Page
+class Savings < SitePrism::Page
 
     element :amount, '#input'
     element :inscreseArrow, '#reachDateIncrement'
